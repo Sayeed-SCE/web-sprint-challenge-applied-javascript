@@ -1,32 +1,51 @@
 const Header = (title, date, temp) => {
   // TASK 1
   // ---------------------
-  // Implement this function taking `title`, `date` and `temp` as its 3 args and returning the markup below.
+  // Implement this function taking `titleElement`, `dateElement` and `tempElement` as its 3 args and returning the markup below.
   // The tags used, the hierarchy of elements and their attributes must match the provided markup exactly!
   // The text inside elements will be set using their `textContent` property (NOT `innerText`).
   //
-  //  <div class="header">
-  //    <span class="date">{ date }</span>
-  //    <h1>{ title }</h1>
-  //    <span class="temp">{ temp }</span>
+  //  <div class='header'>
+  //    <span class='dateElement'>{ dateElement }</span>
+  //    <h1>{ titleElement }</h1>
+  //    <span class='tempElement'>{ tempElement }</span>
   //  </div>
-  const div = document.createElemente('div')
-  div.setAttribute('class', 'header');
+  //
+  // const header = document.createElement('div');
+  // const dateE = document.createElement('span');
+  // const titleE = document.createElement('h1');
+  // const tempE = document.createElement('span');
 
-  const span = document.createElemente('span')
-  span.setAttribute('class', 'date')
+  // dateE.textContent = date;
+  // titleE.textContent = title;
+  // tempE.textContent = temp;
+
+  // header.appendChild(dateE);
+  // header.appendChild(titleE);
+  // header.appendChild(tempE);
+
+  // header.classList.add('header');
+  // dateE.classList.add('dateElement');
+  // tempE.classList.add('tempElement');
+
+  const div = document.createElement('div');
+  div.setAttribute('class','header');
+
+  const span = document.createElement('span');
+  span.setAttribute('class','date');
   span.textContent = date;
 
-  const heading = document.createElemente('h1')
+  const heading = document.createElement('h1');
   heading.textContent = title;
 
-  const span2 = document.createElemente('span')
-  span2.setAttribute('class', 'temp');
+  const span2 = document.createElement('span');
+  span2.setAttribute('class','temp');
   span2.textContent = temp;
 
-  div.appendChild(span)
-  div.appendChild(heading)
-  div.appendChild(span2)
+  //adding span and h1 to div
+  div.appendChild(span);
+  div.appendChild(heading);
+  div.appendChild(span2);
 
   return div;
 }
@@ -40,6 +59,7 @@ const headerAppender = (selector) => {
   //
   const entryPoint = document.querySelector(selector);
   entryPoint.appendChild(Header('BloomTech Times','April 15 2022','Temp: 26' ));
+  
 }
 
 export { Header, headerAppender }
